@@ -1,0 +1,21 @@
+{
+  "name": "test-app",
+  "version": "1.0.0",
+  "description": "docker-compose -f docker-compose.dev.yml up --build docker-compose exec api npm run seed docker-compose down --remove-orphans",
+  "main": "index.js",
+  "scripts": {
+    "test": "cd client && npm run test",
+    "package:install": "concurrently \"cd client && npm install\" \"cd api && npm install\"",
+    "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
+    "server:dev": "cd api && npm run dev",
+    "server:prod": "cd api && npm run start",
+    "client:dev": "cd client && npm run start",
+    "seed": "cd api && npm run seed"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^5.3.0"
+  }
+}

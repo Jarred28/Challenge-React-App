@@ -1,0 +1,38 @@
+@import '~antd/dist/antd.css';
+.App {
+  text-align: center;
+}
+.main {
+  padding: 50px;
+  width: 900px;
+  margin: auto;
+}
+.editable-row .ant-form-item-explain {
+  position: absolute;
+  top: 100%;
+  font-size: 12px;
+}
+.searchbar-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.searchbar-wrapper .ant-input-search {
+  width: 45%;
+}
+.ant-pagination-options {
+  display: none;
+}
+.operation {
+  display: flex;
+  justify-content: space-between;
+}
+.operation div{
+  color: #1890ff;
+  cursor: pointer;
+}
+.operation div[disabled] {
+  pointer-events: none;
+  color: grey;
+  opacity: 0.5;
+}
+

@@ -1,0 +1,30 @@
+version: '2'
+services:
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile.dev
+    command: ["npm", "start"]
+    ports:
+      - '3000:3000'
+    depends_on:
+      - api
+    volumes:
+      - ./client:/usr/src/app
+      - /usr/src/app/node_modules
+  mongo:
+    image: mongo
+    ports:
+      - '27017:27017'      
+  api:
+    build: ./api
+    command: [ "npm", "run", "dev" ]
+    environment: 
+      MONGODB_URI: mongodb://mongo:27017/contact_db
+    ports:
+      - '8080:8080'
+    depends_on:
+      - mongo
+    volumes:
+     - ./api:/usr/src/app
+     - /usr/src/app/node_modules
